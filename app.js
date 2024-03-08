@@ -16,7 +16,7 @@ require("./config")(app);
 
 // 👇 Start handling routes here
 const transactionRoutes = require("./routes/transaction.routes");
-app.use("/", transactionRoutes);
+app.use("/transactions", transactionRoutes);
 
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);

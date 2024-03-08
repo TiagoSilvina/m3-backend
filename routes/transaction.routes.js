@@ -6,7 +6,7 @@ const transaction = require('../models/Transaction.model');
 
 // Create //////////////////////////////////////////////////
 
-router.post("/transaction", (req, res) => {
+router.post("/", (req, res) => {
   const { text, amount } = req.body;
 
   transaction
@@ -17,7 +17,7 @@ router.post("/transaction", (req, res) => {
  
 // Get All //////////////////////////////////////////////////
 
-router.get("/transactions", (req, res) => {
+router.get("/", (req, res) => {
   transaction
     .find()
     .then((allTransaction) => res.json(allTransaction))
