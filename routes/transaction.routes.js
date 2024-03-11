@@ -7,10 +7,10 @@ const transaction = require('../models/Transaction.model');
 // Create //////////////////////////////////////////////////
 
 router.post("/", (req, res) => {
-  const { text, amount } = req.body;
+  const { text, amount, date, type, description,category } = req.body;
 
   transaction
-    .create({ text, amount})
+    .create({ text, amount, date, type, description,category })
     .then((response) => res.json(response))
     .catch((error) => res.json(error));
 });
@@ -39,10 +39,16 @@ router.get("/:transactionId", (req, res) => {
 router.put("/:transactionId", (req, res) => {
   // Object destructuring
   const { transactionId } = req.params;
-  const { text, amount} = req.body;
+  const { text,
+          amount,
+          date,
+          type,
+          description,
+          category } = req.body;
 
   transaction
-    .findByIdAndUpdate(transactionId, { text, amount }, { new: true })
+    .findByIdAndUpdate(transactionId, 
+    { text, amount, date, type, description, category }, { new: true })
     .then(() => {
       res.json({ message: "transaction Updated!" });
     })
