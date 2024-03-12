@@ -16,7 +16,13 @@ router.post("/", (req, res) => {
           receipt } = req.body;
 
   transaction
-    .create({ text, amount, date, type, description,category })
+    .create({ text,
+              type,
+              category,
+              description,
+              amount,
+              date,
+              receipt })
     .then((response) => res.json(response))
     .catch((error) => res.json(error));
 });
@@ -55,7 +61,13 @@ router.put("/:transactionId", (req, res) => {
 
   transaction
     .findByIdAndUpdate(transactionId, 
-    { text, amount, date, type, description, category }, { new: true })
+      { text,
+        type,
+        category,
+        description,
+        amount,
+        date,
+        receipt }, { new: true })
     .then(() => {
       res.json({ message: "transaction Updated!" });
     })
