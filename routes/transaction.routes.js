@@ -7,7 +7,13 @@ const transaction = require('../models/Transaction.model');
 // Create //////////////////////////////////////////////////
 
 router.post("/", (req, res) => {
-  const { text, amount, date, type, description,category } = req.body;
+  const { text,
+          type,
+          category,
+          description,
+          amount,
+          date,
+          receipt } = req.body;
 
   transaction
     .create({ text, amount, date, type, description,category })
@@ -40,11 +46,12 @@ router.put("/:transactionId", (req, res) => {
   // Object destructuring
   const { transactionId } = req.params;
   const { text,
+          type,
+          category,
+          description,
           amount,
           date,
-          type,
-          description,
-          category } = req.body;
+          receipt } = req.body;
 
   transaction
     .findByIdAndUpdate(transactionId, 
