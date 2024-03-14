@@ -13,6 +13,7 @@ const transactionSchema = new Schema({
     amount: {type: Number, required: true},
     date: { type: Date, default: Date.now },
     receipt: {type: String},
+    user: { type: Schema.Types.ObjectId, ref: "User" }
   })
    
   const Transaction = mongoose.model("Transaction", transactionSchema);

@@ -17,7 +17,10 @@ const userSchema = new Schema(
     name: {
       type: String,
       required: [true, "Name is required."],
-    }
+    },
+    img: {type: String, 
+        default:"https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png"},
+    transctions: [ { type: Schema.Types.ObjectId, ref: "Transaction" }]
   },
   
 );
