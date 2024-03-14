@@ -7,6 +7,8 @@ const mongoose = require("mongoose");
 
 const MONGO_URI = "mongodb+srv://tiagoafsilvina:1ronHack.@m3-project.r8yh2t0.mongodb.net/?retryWrites=true&w=majority&appName=M3-project"
 
+/* process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/3-module-project"; */
+
 mongoose
   .connect(MONGO_URI)
   .then((x) => {
